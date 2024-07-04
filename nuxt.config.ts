@@ -10,6 +10,12 @@ export default defineNuxtConfig({
         componentDir: "./app/components/ui",
       },
     ],
+    [
+      "@nuxtjs/color-mode",
+      {
+        classSuffix: "",
+      },
+    ],
   ],
   future: {
     compatibilityVersion: 4,
