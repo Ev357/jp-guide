@@ -1,0 +1,10 @@
+{
+  "APP_NAME": "JP Guide",
+  "HEADER.COMMAND.NO_RESULTS": "Žádné výsledky.",
+  "HEADER.COMMAND.SEARCH": "Hledat...",
+  "HEADER.COMMAND.SEARCH_PLACEHOLDER": "Napište příkaz nebo hledejte...",
+  "HEADER.NAVIGATION.CLASSIC_JP": "Klasická JP",
+  "HEADER.NAVIGATION.DICTIONARIES": "Slovníky",
+  "HEADER.NAVIGATION.GRAMMAR": "Gramatika",
+  "HEADER.NAVIGATION.KANJI": "Kanji"
+}

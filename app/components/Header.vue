@@ -6,21 +6,23 @@ export type HeaderLink = {
   to: string;
 };
 
+const { t } = useI18n();
+
 const links: HeaderLink[] = [
   {
-    title: "Grammar",
+    title: t("HEADER.NAVIGATION.GRAMMAR"),
     to: "/grammar",
   },
   {
-    title: "Classic JP",
+    title: t("HEADER.NAVIGATION.CLASSIC_JP"),
     to: "/classic-jp",
   },
   {
-    title: "Kanji",
+    title: t("HEADER.NAVIGATION.KANJI"),
     to: "/kanji",
   },
   {
-    title: "Dictionaries",
+    title: t("HEADER.NAVIGATION.DICTIONARIES"),
     to: "/dictionaries",
   },
 ];
@@ -39,7 +41,7 @@ const links: HeaderLink[] = [
         <div class="flex gap-4">
           <NuxtLinkLocale to="/" class="flex shrink-0 items-center py-2">
             <NuxtImg src="/img/wa.png" class="size-8 shrink-0" />
-            <h1>JP Guide</h1>
+            <h1>{{ $t("APP_NAME") }}</h1>
           </NuxtLinkLocale>
           <div class="hidden md:flex">
             <HeaderNavigation :links />
@@ -47,7 +49,7 @@ const links: HeaderLink[] = [
         </div>
 
         <div class="hidden items-center gap-2 md:flex">
-          <HeaderCommand />
+          <HeaderCommand :links />
         </div>
         <button
           class="flex size-8 items-center justify-center rounded-full border md:hidden"

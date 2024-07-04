@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import type { HeaderLink } from "@/components/Header.vue";
+
+defineProps<{ links: HeaderLink[] }>();
+
 const open = ref(false);
 
 const { Ctrl_K } = useMagicKeys({
@@ -26,7 +30,7 @@ if (Ctrl_K) {
       class="h-8 w-40 justify-between lg:w-64"
       @click="handleOpenChange"
     >
-      <span>Search...</span>
+      <span>{{ $t("HEADER.COMMAND.SEARCH") }}</span>
       <kbd
         class="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-sans text-[11px] font-medium text-muted-foreground opacity-100"
       >
@@ -35,20 +39,23 @@ if (Ctrl_K) {
       </kbd>
     </Button>
     <CommandDialog :open="open" @update:open="handleOpenChange">
-      <CommandInput placeholder="Type a command or search..." />
+      <CommandInput :placeholder="$t('HEADER.COMMAND.SEARCH_PLACEHOLDER')" />
       <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
-        <CommandGroup heading="Suggestions">
-          <CommandItem value="calendar">Calendar</CommandItem>
-          <CommandItem value="search-emoji">Search Emoji</CommandItem>
-          <CommandItem value="calculator">Calculator</CommandItem>
+        <CommandEmpty>{{ $t("HEADER.COMMAND.NO_RESULTS") }}</CommandEmpty>
+        <CommandGroup
+          v-for="(link, index) in links"
+          :key="link.to"
+          :heading="link.title"
+        >
+          <CommandItem :value="`thing-${index}`">Thing {{ index }}</CommandItem>
+          <CommandItem :value="`second-thing-${index}`">
+            Second Thing {{ index }}
+          </CommandItem>
+          <CommandItem :value="`third-thing-${index}`">
+            Third Thing {{ index }}
+          </CommandItem>
         </CommandGroup>
         <CommandSeparator />
-        <CommandGroup heading="Settings">
-          <CommandItem value="profile">Profile</CommandItem>
-          <CommandItem value="billing">Billing</CommandItem>
-          <CommandItem value="settings">Settings</CommandItem>
-        </CommandGroup>
       </CommandList>
     </CommandDialog>
   </div>

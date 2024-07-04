@@ -20,16 +20,21 @@ export default defineNuxtConfig({
       "@nuxtjs/i18n",
       {
         defaultLocale: "en",
+        fallbackLocale: "en",
         locales: [
           {
             code: "en",
             name: "English",
+            file: "en.json",
           },
           {
             code: "cs",
             name: "Čeština",
+            file: "cs.json",
           },
         ],
+        lazy: true,
+        langDir: "lang",
       },
     ],
     [
@@ -58,6 +63,11 @@ export default defineNuxtConfig({
   experimental: {
     componentIslands: {
       selectiveClient: "deep",
+    },
+  },
+  app: {
+    head: {
+      titleTemplate: "%siteName",
     },
   },
 });
