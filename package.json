@@ -3,11 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "build": "bunx --bun nuxt build",
+    "dev": "bunx --bun nuxt dev",
+    "generate": "bunx --bunnuxt generate",
+    "preview": "bunx --bun nuxt preview",
+    "postinstall": "bunx --bun nuxt prepare",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.12.0",
@@ -20,5 +21,9 @@
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
     "vue": "latest"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.2",
+    "prettier-plugin-tailwindcss": "^0.6.5"
   }
 }
