@@ -19,12 +19,12 @@ const forwarded = useForwardPropsEmits(props, emits);
     <DialogContent class="overflow-hidden p-0 shadow-lg">
       <VisuallyHidden>
         <DialogTitle class="text-mauve12 m-0 text-[17px] font-semibold">
-          Commmand Search
+          {{ $t("HEADER.COMMAND.TITLE") }}
         </DialogTitle>
         <DialogDescription
           class="text-mauve11 mb-5 mt-[10px] text-[15px] leading-normal"
         >
-          Search for commands, settings, and system files
+          {{ $t("HEADER.COMMAND.DESCRIPTION") }}
         </DialogDescription>
       </VisuallyHidden>
       <Command

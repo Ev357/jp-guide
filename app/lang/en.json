@@ -1,8 +1,11 @@
 {
   "APP_NAME": "JP Guide",
+  "COMMON.CLOSE": "Close",
+  "HEADER.COMMAND.DESCRIPTION": "Search for anything you want",
   "HEADER.COMMAND.NO_RESULTS": "No results found.",
   "HEADER.COMMAND.SEARCH": "Search...",
   "HEADER.COMMAND.SEARCH_PLACEHOLDER": "Type a command or search...",
+  "HEADER.COMMAND.TITLE": "Search command",
   "HEADER.NAVIGATION.CLASSIC_JP": "Classic JP",
   "HEADER.NAVIGATION.DICTIONARIES": "Dictionaries",
   "HEADER.NAVIGATION.GRAMMAR": "Grammar",
