@@ -40,6 +40,7 @@ export default defineNuxtConfig({
         description: process.env.NUXT_PUBLIC_SITE_DESCRIPTION,
       },
     ],
+    "@nuxt/image",
   ],
   runtimeConfig: {
     public: {
