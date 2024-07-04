@@ -16,7 +16,40 @@ export default defineNuxtConfig({
         classSuffix: "",
       },
     ],
+    [
+      "@nuxtjs/i18n",
+      {
+        defaultLocale: "en",
+        locales: [
+          {
+            code: "en",
+            name: "English",
+          },
+          {
+            code: "cs",
+            name: "Čeština",
+          },
+        ],
+      },
+    ],
+    [
+      "@nuxtjs/seo",
+      {
+        baseUrl: process.env.NUXT_PUBLIC_SITE_URL,
+        name: process.env.NUXT_PUBLIC_SITE_NAME,
+        description: process.env.NUXT_PUBLIC_SITE_DESCRIPTION,
+      },
+    ],
   ],
+  runtimeConfig: {
+    public: {
+      site: {
+        url: process.env.NUXT_PUBLIC_SITE_URL,
+        name: process.env.NUXT_PUBLIC_SITE_NAME,
+        description: process.env.NUXT_PUBLIC_SITE_DESCRIPTION,
+      },
+    },
+  },
   future: {
     compatibilityVersion: 4,
   },

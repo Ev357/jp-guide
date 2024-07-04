@@ -3,15 +3,17 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "bunx --bun nuxt build",
-    "dev": "bunx --bun nuxt dev",
-    "generate": "bunx --bunnuxt generate",
-    "preview": "bunx --bun nuxt preview",
-    "postinstall": "bunx --bun nuxt prepare",
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
     "format": "prettier --write ."
   },
   "dependencies": {
     "@nuxtjs/color-mode": "^3.4.2",
+    "@nuxtjs/i18n": "^8.3.1",
+    "@nuxtjs/seo": "^2.0.0-rc.11",
     "@nuxtjs/tailwindcss": "^6.12.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
