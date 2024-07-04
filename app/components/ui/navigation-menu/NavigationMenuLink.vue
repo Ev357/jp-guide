@@ -1,19 +1,18 @@
 <script setup lang="ts">
-import {
-  NavigationMenuLink,
-  type NavigationMenuLinkEmits,
-  type NavigationMenuLinkProps,
-  useForwardPropsEmits,
-} from "radix-vue";
+import type { NuxtLinkProps } from "#app";
+import { useForwardPropsEmits } from "radix-vue";
 
-const props = defineProps<NavigationMenuLinkProps>();
-const emits = defineEmits<NavigationMenuLinkEmits>();
+const props = defineProps<
+  NuxtLinkProps & {
+    locale?: string | undefined;
+  }
+>();
 
-const forwarded = useForwardPropsEmits(props, emits);
+const forwarded = useForwardPropsEmits(props);
 </script>
 
 <template>
-  <NavigationMenuLink v-bind="forwarded">
+  <NuxtLinkLocale v-bind="forwarded">
     <slot />
-  </NavigationMenuLink>
+  </NuxtLinkLocale>
 </template>
