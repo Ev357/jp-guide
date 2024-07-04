@@ -57,7 +57,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits);
           class="absolute right-3 top-3 rounded-md p-0.5 transition-colors hover:bg-secondary"
         >
           <span class="i-heroicons-x-mark-20-solid size-5 shrink-0"></span>
-          <span class="sr-only">Close</span>
+          <span class="sr-only">{{ $t("COMMON.CLOSE") }}</span>
         </DialogClose>
       </DialogContent>
     </DialogOverlay>

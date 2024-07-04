@@ -1,8 +1,11 @@
 {
   "APP_NAME": "JP Guide",
+  "COMMON.CLOSE": "Zavřít",
+  "HEADER.COMMAND.DESCRIPTION": "Vyhledejte cokoliv",
   "HEADER.COMMAND.NO_RESULTS": "Žádné výsledky.",
   "HEADER.COMMAND.SEARCH": "Hledat...",
   "HEADER.COMMAND.SEARCH_PLACEHOLDER": "Napište příkaz nebo hledejte...",
+  "HEADER.COMMAND.TITLE": "Hledací konzole",
   "HEADER.NAVIGATION.CLASSIC_JP": "Klasická JP",
   "HEADER.NAVIGATION.DICTIONARIES": "Slovníky",
   "HEADER.NAVIGATION.GRAMMAR": "Gramatika",
