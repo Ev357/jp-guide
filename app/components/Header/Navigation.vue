@@ -12,7 +12,7 @@ defineProps<{
     <NavigationMenuList>
       <NavigationMenuItem v-for="item in links" :key="item.to">
         <NavigationMenuLink
-          :href="item.to"
+          :to="item.to"
           :class="navigationMenuTriggerStyle()"
         >
           {{ item.title }}
