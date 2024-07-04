@@ -41,6 +41,7 @@ export default defineNuxtConfig({
       },
     ],
     "@nuxt/image",
+    "@vueuse/nuxt",
   ],
   runtimeConfig: {
     public: {

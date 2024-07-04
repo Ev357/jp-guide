@@ -46,7 +46,9 @@ const links: HeaderLink[] = [
           </div>
         </div>
 
-        <div class="hidden items-center gap-2 md:flex">Search</div>
+        <div class="hidden items-center gap-2 md:flex">
+          <HeaderCommand />
+        </div>
         <button
           class="flex size-8 items-center justify-center rounded-full border md:hidden"
           @mousedown="isOpen = !isOpen"
