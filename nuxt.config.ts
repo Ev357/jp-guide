@@ -47,6 +47,12 @@ export default defineNuxtConfig({
     ],
     "@nuxt/image",
     "@vueuse/nuxt",
+    [
+      "@nuxt/content",
+      {
+        locales: ["en", "cs"],
+      },
+    ],
   ],
   runtimeConfig: {
     public: {

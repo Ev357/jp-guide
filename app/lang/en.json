@@ -1,6 +1,18 @@
 {
   "APP_NAME": "JP Guide",
   "COMMON.CLOSE": "Close",
+  "ERROR.APPLICATION": "An error occurred in the application and the page could not be served. If you are the application owner, check your server logs for details.",
+  "ERROR.BACK": "Go back",
+  "ERROR.BACK_HOME": "Go back home",
+  "ERROR.INTERNAL_ERROR": "Internal Server Error",
+  "ERROR.NOT_FOUND": "Not Found",
+  "ERROR.OFFLINE": "Offline",
+  "ERROR.OFFLINE_MESSAGE": "Offline. Please check your connection.",
+  "ERROR.PAGE_NOT_FOUND": "Page Not Found",
+  "ERROR.PAGE_NOT_FOUND_DESCRIPTION": "Sorry, the page you are looking for could not be found.",
+  "ERROR.PAGE_NOT_FOUND_URL": "Page not found: { url }",
+  "ERROR.PAGE_TEMPORARILY_UNAVAILABLE": "This page is temporarily unavailable.",
+  "ERROR.SERVER_ERROR": "Server error",
   "HEADER.COMMAND.DESCRIPTION": "Search for anything you want",
   "HEADER.COMMAND.NO_RESULTS": "No results found.",
   "HEADER.COMMAND.SEARCH": "Search...",
@@ -10,6 +22,7 @@
   "HEADER.NAVIGATION.DICTIONARIES": "Dictionaries",
   "HEADER.NAVIGATION.GRAMMAR": "Grammar",
   "HEADER.NAVIGATION.KANJI": "Kanji",
+  "HEADER.NAVIGATION.PHONETICS": "Phonetics",
   "HEADER.SWITCH_LANG.LANGUAGE": "Language",
   "HEADER.SWITCH_MODE.THEME": "Theme"
 }
