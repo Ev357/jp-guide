@@ -9,12 +9,21 @@ defineProps<{
 </script>
 
 <template>
+  <HeaderCommand :links :hideKbd="true" class="h-10 w-full" />
   <NavigationMenuLink
     v-for="item in links"
     :key="item.to"
-    :href="item.to"
-    :class="cn(navigationMenuTriggerStyle(), 'w-full')"
+    :to="item.to"
+    :class="cn(navigationMenuTriggerStyle(), 'w-full justify-start')"
   >
-    {{ item.title }}
+    {{ $t(item.title) }}
   </NavigationMenuLink>
+  <div class="flex items-center justify-between px-4 py-2">
+    <p>{{ $t("HEADER.SWITCH_MODE.THEME") }}</p>
+    <SwitchMode />
+  </div>
+  <div class="flex items-center justify-between px-4 py-2">
+    <p>{{ $t("HEADER.SWITCH_LANG.LANGUAGE") }}</p>
+    <SwitchLang />
+  </div>
 </template>
