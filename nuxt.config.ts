@@ -53,6 +53,7 @@ export default defineNuxtConfig({
         locales: ["en", "cs"],
       },
     ],
+    "@nuxthq/studio",
   ],
   runtimeConfig: {
     public: {
