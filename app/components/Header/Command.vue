@@ -56,7 +56,7 @@ if (Ctrl_K) {
       <CommandGroup
         v-for="(link, index) in links"
         :key="link.to"
-        :heading="link.title"
+        :heading="$t(link.title)"
       >
         <CommandItem :value="`thing-${index}`">Thing {{ index }}</CommandItem>
         <CommandItem :value="`second-thing-${index}`">

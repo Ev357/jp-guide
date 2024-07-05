@@ -14,8 +14,16 @@ defineProps<{
     v-for="item in links"
     :key="item.to"
     :to="item.to"
-    :class="cn(navigationMenuTriggerStyle(), 'w-full')"
+    :class="cn(navigationMenuTriggerStyle(), 'w-full justify-start')"
   >
-    {{ item.title }}
+    {{ $t(item.title) }}
   </NavigationMenuLink>
+  <div class="flex items-center justify-between px-4 py-2">
+    <p>{{ $t("HEADER.SWITCH_MODE.THEME") }}</p>
+    <SwitchMode />
+  </div>
+  <div class="flex items-center justify-between px-4 py-2">
+    <p>{{ $t("HEADER.SWITCH_LANG.LANGUAGE") }}</p>
+    <SwitchLang />
+  </div>
 </template>
