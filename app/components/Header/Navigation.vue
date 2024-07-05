@@ -10,9 +10,12 @@ defineProps<{
 <template>
   <NavigationMenu>
     <NavigationMenuList>
-      <NavigationMenuItem v-for="item in links" :key="item.to">
-        <NavigationMenuLink :to="item.to" :class="navigationMenuTriggerStyle()">
-          {{ $t(item.title) }}
+      <NavigationMenuItem v-for="item in links" :key="item.path">
+        <NavigationMenuLink
+          :to="item.path"
+          :class="navigationMenuTriggerStyle()"
+        >
+          {{ item.title }}
         </NavigationMenuLink>
       </NavigationMenuItem>
     </NavigationMenuList>

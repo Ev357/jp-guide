@@ -12,11 +12,11 @@ defineProps<{
   <HeaderCommand :links :hideKbd="true" class="h-10 w-full" />
   <NavigationMenuLink
     v-for="item in links"
-    :key="item.to"
-    :to="item.to"
+    :key="item.path"
+    :to="item.path"
     :class="cn(navigationMenuTriggerStyle(), 'w-full justify-start')"
   >
-    {{ $t(item.title) }}
+    {{ item.title }}
   </NavigationMenuLink>
   <div class="flex items-center justify-between px-4 py-2">
     <p>{{ $t("HEADER.SWITCH_MODE.THEME") }}</p>

@@ -37,7 +37,7 @@ if (Ctrl_K) {
 <template>
   <Button
     variant="outline"
-    :class="cn('h-8 w-40 justify-between lg:w-64', props.class)"
+    :class="cn('h-8 w-64 justify-between', props.class)"
     @click="handleOpenChange"
   >
     <span>{{ $t("HEADER.COMMAND.SEARCH") }}</span>
@@ -55,8 +55,8 @@ if (Ctrl_K) {
       <CommandEmpty>{{ $t("HEADER.COMMAND.NO_RESULTS") }}</CommandEmpty>
       <CommandGroup
         v-for="(link, index) in links"
-        :key="link.to"
-        :heading="$t(link.title)"
+        :key="link.path"
+        :heading="link.title"
       >
         <CommandItem :value="`thing-${index}`">Thing {{ index }}</CommandItem>
         <CommandItem :value="`second-thing-${index}`">
