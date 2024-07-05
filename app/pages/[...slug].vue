@@ -3,10 +3,6 @@ import type { ParsedContent } from "@nuxt/content";
 
 const { t, locale } = useI18n();
 
-useSeoMeta({
-  title: t("APP_NAME"),
-});
-
 const {
   params: { slug },
 } = useRoute();
@@ -32,12 +28,16 @@ const { data, error } = await useAsyncData<
     .findOne(),
 );
 
+useHead({
+  title: data.value?.title,
+});
+
 const is404 = computed(() => error.value && error.value.statusCode === 404);
 </script>
 
 <template>
   <div>
-    <MaxWidthWrapper v-if="data">
+    <MaxWidthWrapper v-if="data" class="pb-16">
       <ContentRenderer :value="data" class="prose dark:prose-invert" />
     </MaxWidthWrapper>
     <Error404
