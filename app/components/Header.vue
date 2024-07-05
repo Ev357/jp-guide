@@ -12,7 +12,7 @@ const { data: links } = await useAsyncData(
   "navigation",
   async () => {
     const paths = await queryContent("/")
-      .where({ _locale: locale.value, _path: { $ne: "/" } })
+      .where({ _locale: locale.value, _path: { $ne: "/" }, _dir: "" })
       .only(["title", "_path"])
       .find();
 
