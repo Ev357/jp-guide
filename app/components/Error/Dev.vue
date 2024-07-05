@@ -6,7 +6,7 @@ const props = withDefaults(
   defineProps<{
     appName?: string;
     version?: string;
-    statusCode: number;
+    statusCode?: number;
     statusMessage: string;
     description: string;
     stack: string;

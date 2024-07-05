@@ -6,11 +6,11 @@ const props = withDefaults(
   defineProps<{
     appName?: string;
     version?: string;
-    statusCode: number;
+    statusCode?: number;
     statusMessage: string;
     description: string;
     backMessage: string;
-    backUrl: string;
+    backUrl?: string;
     class?: HTMLAttributes["class"];
   }>(),
   {
