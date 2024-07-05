@@ -12,7 +12,7 @@ const isOpen = defineModel<boolean>({ required: true });
 
 <template>
   <HeaderCommand :links :hideKbd="true" class="h-10 w-full" />
-  <NavigationMenuLink
+  <UNavigationMenuLink
     v-for="item in links"
     :key="item.path"
     :to="item.path"
@@ -20,7 +20,7 @@ const isOpen = defineModel<boolean>({ required: true });
     @click="isOpen = false"
   >
     {{ item.title }}
-  </NavigationMenuLink>
+  </UNavigationMenuLink>
   <div class="flex items-center justify-between px-4 py-2">
     <p>{{ $t("HEADER.SWITCH_MODE.THEME") }}</p>
     <SwitchMode />

@@ -6,15 +6,15 @@ defineProps<{
 
 <template>
   <NuxtLinkLocale :to="path">
-    <Card class="not-prose h-full">
-      <CardHeader>
-        <CardTitle>
+    <UCard class="not-prose h-full">
+      <UCardHeader>
+        <UCardTitle>
           <slot />
-        </CardTitle>
-        <CardDescription>
+        </UCardTitle>
+        <UCardDescription>
           <slot name="description" />
-        </CardDescription>
-      </CardHeader>
-    </Card>
+        </UCardDescription>
+      </UCardHeader>
+    </UCard>
   </NuxtLinkLocale>
 </template>

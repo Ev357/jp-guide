@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     [
       "shadcn-nuxt",
       {
+        prefix: "U",
         componentDir: "./app/components/ui",
       },
     ],

@@ -35,7 +35,7 @@ if (Ctrl_K) {
 </script>
 
 <template>
-  <Button
+  <UButton
     variant="outline"
     :class="cn('h-8 w-64 justify-between', props.class)"
     @click="handleOpenChange"
@@ -48,25 +48,25 @@ if (Ctrl_K) {
       <span class="text-xs">⌘</span>
       K
     </kbd>
-  </Button>
-  <CommandDialog :open="open" @update:open="handleOpenChange">
-    <CommandInput :placeholder="$t('HEADER.COMMAND.SEARCH_PLACEHOLDER')" />
-    <CommandList>
-      <CommandEmpty>{{ $t("HEADER.COMMAND.NO_RESULTS") }}</CommandEmpty>
-      <CommandGroup
+  </UButton>
+  <UCommandDialog :open="open" @update:open="handleOpenChange">
+    <UCommandInput :placeholder="$t('HEADER.COMMAND.SEARCH_PLACEHOLDER')" />
+    <UCommandList>
+      <UCommandEmpty>{{ $t("HEADER.COMMAND.NO_RESULTS") }}</UCommandEmpty>
+      <UCommandGroup
         v-for="(link, index) in links"
         :key="link.path"
         :heading="link.title"
       >
-        <CommandItem :value="`thing-${index}`">Thing {{ index }}</CommandItem>
-        <CommandItem :value="`second-thing-${index}`">
+        <UCommandItem :value="`thing-${index}`">Thing {{ index }}</UCommandItem>
+        <UCommandItem :value="`second-thing-${index}`">
           Second Thing {{ index }}
-        </CommandItem>
-        <CommandItem :value="`third-thing-${index}`">
+        </UCommandItem>
+        <UCommandItem :value="`third-thing-${index}`">
           Third Thing {{ index }}
-        </CommandItem>
-      </CommandGroup>
-      <CommandSeparator />
-    </CommandList>
-  </CommandDialog>
+        </UCommandItem>
+      </UCommandGroup>
+      <UCommandSeparator />
+    </UCommandList>
+  </UCommandDialog>
 </template>

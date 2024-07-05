@@ -6,28 +6,28 @@ The term Classical Japanese refers to over 1000 years of language developement w
 ---
 
 ::hero
-  :::hero-card{path="/classic-jp/periodization"}
+  :::card{path="/classic-jp/periodization"}
   Periodization and classical works
 
   #description
   When trying to learn phonetics, it's always useful to understand and master the absolute basics of it, therefore I'm including this section so further studies won't present much problems.
   :::
 
-  :::hero-card{path="/classic-jp/periodization"}
+  :::card{path="/classic-jp/periodization"}
   Periodization and classical works
 
   #description
   When trying to learn phonetics, it's always useful to understand and master the absolute basics of it, therefore I'm including this section so further studies won't present much problems.
   :::
 
-  :::hero-card{path="/classic-jp/periodization"}
+  :::card{path="/classic-jp/periodization"}
   Periodization and classical works
 
   #description
   When trying to learn phonetics, it's always useful to understand and master the absolute basics of it, therefore I'm including this section so further studies won't present much problems.
   :::
 
-  :::hero-card{path="/classic-jp/periodization"}
+  :::card{path="/classic-jp/periodization"}
   Verbs
 
   #description

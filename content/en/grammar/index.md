@@ -5,7 +5,7 @@ Grammar is the study of the structure and rules of language. On this page I'm go
 ---
 
 ::hero
-  :::hero-card
+  :::card
   Basic Terminology
 
   #description
