@@ -6,6 +6,8 @@ const availableLocales = computed(() =>
   locales.value.filter((i) => i.code !== locale.value),
 );
 
+const dropdownLocale = ref(locale.value);
+
 const NuxtLink = resolveComponent("NuxtLink");
 </script>
 
@@ -16,7 +18,7 @@ const NuxtLink = resolveComponent("NuxtLink");
       class="i-heroicons-language-20-solid size-5 shrink-0"
     />
     <DropdownMenuContent>
-      <DropdownMenuRadioGroup v-model="locale">
+      <DropdownMenuRadioGroup v-model="dropdownLocale">
         <DropdownMenuRadioItem
           v-for="locale in availableLocales"
           :key="locale.code"
