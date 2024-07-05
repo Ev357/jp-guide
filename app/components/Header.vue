@@ -67,7 +67,7 @@ const { data: links } = await useAsyncData(
         </button>
       </div>
       <div v-if="isOpen" class="flex flex-col gap-2 lg:hidden">
-        <HeaderMobileNavigation v-if="links" :links />
+        <HeaderMobileNavigation v-if="links" v-model="isOpen" :links />
       </div>
     </header>
   </div>

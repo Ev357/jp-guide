@@ -6,6 +6,8 @@ import { cn } from "@/lib/utils";
 defineProps<{
   links: HeaderLink[];
 }>();
+
+const isOpen = defineModel<boolean>({ required: true });
 </script>
 
 <template>
@@ -15,6 +17,7 @@ defineProps<{
     :key="item.path"
     :to="item.path"
     :class="cn(navigationMenuTriggerStyle(), 'w-full justify-start')"
+    @click="isOpen = false"
   >
     {{ item.title }}
   </NavigationMenuLink>
