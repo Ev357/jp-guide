@@ -1,4 +1,4 @@
-# Vítejte v JP Guide
+# wefwfioe
 
 JP Guide je průvodce pro výuku japonštiny. Jedná se o projekt, jehož cílem je poskytnout komplexní a uživatelsky přívětivou výuku jak začátečníkům, tak pokročilým studentům.
 
