@@ -7,7 +7,7 @@ Phonetics is the study of speech sounds and their classification. On this page I
 ::hero
   :::card
   ---
-  path: /phonetics
+  path: /phonetics/basic-terminology
   ---
   Basic Terminology
   
