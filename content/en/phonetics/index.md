@@ -6,9 +6,22 @@ Phonetics is the study of speech sounds and their classification. On this page I
 
 ::hero
   :::card
+  ---
+  path: /phonetics
+  ---
   Basic Terminology
   
   #description
   When trying to learn phonetics, it's always useful to understand and master the absolute basics of it, therefore I'm including this section so further studies won't present much problems.
+  :::
+
+  :::card
+  ---
+  path: /phonetics/basic-terminology
+  ---
+  ddsfs
+  
+  #description
+  dsfsfsdfsdsdf
   :::
 ::
