@@ -1,14 +1,26 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from "vue";
 import { cn } from "@/lib/utils";
+import { Primitive, type PrimitiveProps } from "radix-vue";
 
-const props = defineProps<{
-  class?: HTMLAttributes["class"];
-}>();
+const props = withDefaults(
+  defineProps<
+    PrimitiveProps & {
+      class?: HTMLAttributes["class"];
+    }
+  >(),
+  {
+    as: "p",
+  },
+);
 </script>
 
 <template>
-  <p :class="cn('text-sm text-muted-foreground', props.class)">
+  <Primitive
+    :as="as"
+    :as-child="asChild"
+    :class="cn('text-sm text-muted-foreground', props.class)"
+  >
     <slot />
-  </p>
+  </Primitive>
 </template>

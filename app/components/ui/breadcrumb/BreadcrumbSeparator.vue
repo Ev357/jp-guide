@@ -14,7 +14,9 @@ const props = defineProps<{
     :class="cn('[&>svg]:size-3.5', props.class)"
   >
     <slot>
-      <span class="i-heroicons-chevron-right-20-solid size-5 shrink-0"></span>
+      <span
+        class="i-heroicons-chevron-right-20-solid block size-4 shrink-0"
+      ></span>
     </slot>
   </li>
 </template>

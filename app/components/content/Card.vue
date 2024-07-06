@@ -11,7 +11,7 @@ defineProps<{
         <UCardTitle>
           <slot />
         </UCardTitle>
-        <UCardDescription>
+        <UCardDescription as="div">
           <slot name="description" />
         </UCardDescription>
       </UCardHeader>
