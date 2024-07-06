@@ -19,4 +19,3 @@ Vowel height refers to how much the tongue is raised when articulating a certain
 | High(Close) | い     |         | う    |
 | Mid         | え     |         | お    |
 | Low(Open)   |       | あ       |      |
-
