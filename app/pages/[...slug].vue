@@ -1,19 +1,13 @@
 <script setup lang="ts">
 import type { ParsedContent } from "@nuxt/content";
 
-const { t, locale } = useI18n();
+const { locale } = useI18n();
 
 const {
   params: { slug },
 } = useRoute();
 
-const path = computed(() => {
-  if (Array.isArray(slug)) {
-    return `/${slug.join("/")}`;
-  }
-
-  return `/${slug}`;
-});
+const path = computed(() => getPath(slug));
 
 const getFullPath = () => useRoute().fullPath;
 
@@ -38,7 +32,12 @@ const is404 = computed(() => error.value && error.value.statusCode === 404);
 <template>
   <div>
     <MaxWidthWrapper v-if="data" class="pb-16">
-      <ContentRenderer :value="data" class="prose dark:prose-invert" />
+      <ContentRenderer :value="data">
+        <div class="prose flex flex-col gap-8 dark:prose-invert">
+          <Breadcrumb />
+          <ContentRendererMarkdown :value="data" />
+        </div>
+      </ContentRenderer>
     </MaxWidthWrapper>
     <Error404
       v-if="is404"

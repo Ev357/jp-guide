@@ -12,14 +12,14 @@ const NuxtLink = resolveComponent("NuxtLink");
 </script>
 
 <template>
-  <DropdownMenu>
-    <DropdownMenuTrigger
+  <UDropdownMenu>
+    <UDropdownMenuTrigger
       as="button"
       class="i-heroicons-language-20-solid size-5 shrink-0"
     />
-    <DropdownMenuContent>
-      <DropdownMenuRadioGroup v-model="dropdownLocale">
-        <DropdownMenuRadioItem
+    <UDropdownMenuContent>
+      <UDropdownMenuRadioGroup v-model="dropdownLocale">
+        <UDropdownMenuRadioItem
           v-for="locale in availableLocales"
           :key="locale.code"
           :value="locale.code"
@@ -27,8 +27,8 @@ const NuxtLink = resolveComponent("NuxtLink");
           :to="switchLocalePath(locale.code)"
         >
           {{ locale.name }}
-        </DropdownMenuRadioItem>
-      </DropdownMenuRadioGroup>
-    </DropdownMenuContent>
-  </DropdownMenu>
+        </UDropdownMenuRadioItem>
+      </UDropdownMenuRadioGroup>
+    </UDropdownMenuContent>
+  </UDropdownMenu>
 </template>

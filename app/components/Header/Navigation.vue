@@ -8,16 +8,16 @@ defineProps<{
 </script>
 
 <template>
-  <NavigationMenu>
-    <NavigationMenuList>
-      <NavigationMenuItem v-for="item in links" :key="item.path">
-        <NavigationMenuLink
+  <UNavigationMenu>
+    <UNavigationMenuList>
+      <UNavigationMenuItem v-for="item in links" :key="item.path">
+        <UNavigationMenuLink
           :to="item.path"
           :class="navigationMenuTriggerStyle()"
         >
           {{ item.title }}
-        </NavigationMenuLink>
-      </NavigationMenuItem>
-    </NavigationMenuList>
-  </NavigationMenu>
+        </UNavigationMenuLink>
+      </UNavigationMenuItem>
+    </UNavigationMenuList>
+  </UNavigationMenu>
 </template>

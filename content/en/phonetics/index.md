@@ -5,7 +5,7 @@ Phonetics is the study of speech sounds and their classification. On this page I
 ---
 
 ::hero
-  :::hero-card
+  :::card
   Basic Terminology
 
   #description
