@@ -14,5 +14,10 @@ Vowel height refers to how much the tongue is raised when articulating a certain
 
 ### Japanese Vowel Chart
 
-::prose-table
-::
+```js
+|             | Front | Central | Back |
+| ----------- | ----- | ------- | ---- |
+| High(Close) | い     |         | う    |
+| Mid         | え     |         | お    |
+| Low(Open)   |       | あ       |      |
+```
