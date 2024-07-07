@@ -17,8 +17,6 @@ const { data: links } = await useAsyncData(
       .only(["title", "_path"])
       .find();
 
-    console.log(paths);
-
     return paths.map<HeaderLink>(({ _path: path, ...props }) => ({
       ...props,
       title: props.title ?? t("APP_NAME"),
