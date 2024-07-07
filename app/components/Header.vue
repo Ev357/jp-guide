@@ -13,6 +13,7 @@ const { data: links } = await useAsyncData(
   async () => {
     const paths = await queryContent("/")
       .where({ _locale: locale.value, _path: { $ne: "/" }, _dir: "" })
+      .sort({ page_order: 1, $numeric: true })
       .only(["title", "_path"])
       .find();
 
