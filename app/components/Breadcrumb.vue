@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { BreadcrumbItemProps } from "@@/node_modules/@nuxtjs/seo/dist/runtime/nuxt/composables/useBreadcrumbItems.js";
-import BreadcrumbSeparator from "./ui/breadcrumb/BreadcrumbSeparator.vue";
 
 const {
   params: { slug },
@@ -20,11 +19,19 @@ const { data } = await useAsyncData(
       .only(["title", "_path"])
       .find();
 
-    return items.map<BreadcrumbItemProps>((breadcrumb, index) => ({
-      label: breadcrumb.title ?? t("APP_NAME"),
-      to: breadcrumb._path,
-      current: index === items.length - 1,
-    }));
+    const breadcrumbItems = [
+      ...items.map<BreadcrumbItemProps>((breadcrumb) => ({
+        label: breadcrumb.title ?? t("APP_NAME"),
+        to: breadcrumb._path,
+      })),
+    ].sort((a, b) => (a.to && b.to ? a.to.length - b.to.length : 0));
+
+    const lastItem = breadcrumbItems[breadcrumbItems.length - 1];
+    if (lastItem) {
+      lastItem.current = true;
+    }
+
+    return breadcrumbItems;
   },
   {
     watch: [locale],
@@ -48,14 +55,14 @@ const breadcrumbItems = computed(() =>
     class="not-prose"
   >
     <UBreadcrumbList>
-      <template v-for="(item, index) in breadcrumbItems" :key="item.to">
+      <template v-for="item in breadcrumbItems" :key="item.to">
         <UBreadcrumbItem>
           <UBreadcrumbLink v-if="!item.current" :to="item.to">
             {{ item.label }}
           </UBreadcrumbLink>
           <UBreadcrumbPage v-else>{{ item.label }}</UBreadcrumbPage>
         </UBreadcrumbItem>
-        <BreadcrumbSeparator v-if="!item.current" />
+        <UBreadcrumbSeparator v-if="!item.current" />
       </template>
     </UBreadcrumbList>
   </UBreadcrumb>
