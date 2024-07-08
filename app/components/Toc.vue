@@ -35,7 +35,7 @@ onMounted(() => {
 
 <template>
   <div v-if="links?.length" class="sticky top-12 flex flex-col gap-2">
-    <p>{{ $t("TOC.TITLE") }}</p>
+    <p class="font-bold">{{ $t("TOC.TITLE") }}</p>
     <ul>
       <li v-for="link in links" :key="link.text">
         <a
