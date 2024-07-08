@@ -14,12 +14,11 @@ Vowel height refers to how much the tongue is raised when articulating a certain
 
 ### Japanese Vowel Chart
 
-|             |       |         |      |
-| ----------- | ----- | ------- | ---- |
 |             | Front | Central | Back |
-| High(Close) | い     |         | う    |
-| Mid         | え     |         | お    |
-| Low(Open)   |       | あ       |      |
+|-------------|-------|---------|------|
+| High(Close) | い    |         | う   |
+| Mid         | え    |         | お   |
+| Low(Open)   |       | あ      |      |
 
 For example, い is classified as a high front vowel because the tongue is raised up and is in the front part of the mouth during articulation.
 

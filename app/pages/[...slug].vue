@@ -32,7 +32,7 @@ const is404 = computed(() => error.value && error.value.statusCode === 404);
 <template>
   <div>
     <MaxWidthWrapper v-if="data" class="pb-16 lg:grid lg:grid-cols-10 lg:gap-8">
-      <div class="col-span-2 hidden justify-end self-start lg:flex">
+      <div class="col-span-2 hidden h-full justify-end self-start lg:block">
         <NavTree v-if="path !== '/'" />
       </div>
       <ContentRenderer :value="data">
