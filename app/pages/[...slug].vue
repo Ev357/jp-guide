@@ -43,6 +43,9 @@ const is404 = computed(() => error.value && error.value.statusCode === 404);
           </div>
         </div>
       </ContentRenderer>
+      <div class="col-span-2 hidden h-full justify-start self-start lg:block">
+        <Toc v-if="path !== '/'" :toc="data.body?.toc" />
+      </div>
     </MaxWidthWrapper>
     <Error404
       v-if="is404"
