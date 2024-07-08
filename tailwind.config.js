@@ -88,6 +88,32 @@ module.exports = {
       fontFamily: {
         nunito: ["Nunito"],
       },
+      typography: {
+        DEFAULT: {
+          css: [
+            {
+              td: {
+                border: "1px solid var(--tw-prose-invert-td-borders);",
+              },
+              th: {
+                border: "1px solid var(--tw-prose-invert-th-borders);",
+              },
+              "hr > a": {
+                textDecoration: "none",
+              },
+              "h2 > a": {
+                textDecoration: "none",
+              },
+              "h3 > a": {
+                textDecoration: "none",
+              },
+              "h4 > a": {
+                textDecoration: "none",
+              },
+            },
+          ],
+        },
+      },
     },
   },
   plugins: [

@@ -27,18 +27,19 @@ const { data: items } = await useAsyncData(
 <template>
   <TreeRoot
     v-slot="{ flattenItems }"
-    class="w-56 select-none list-none p-2 text-sm"
+    class="sticky top-12 select-none list-none text-sm"
     :items="items"
     :get-key="(item) => item._path"
     :default-expanded="paths"
   >
-    <template v-for="item in flattenItems" :key="item._id">
+    <template v-for="(item, index) in flattenItems" :key="item._id">
       <TreeItem
         v-if="item.value._path !== item.parentItem?._path"
         v-slot="{ isExpanded }"
         :style="{ 'padding-left': `${item.level - 0.5}rem` }"
         v-bind="item.bind"
-        class="my-0.5 flex items-center justify-between rounded px-2 py-1 outline-none"
+        class="my-0.5 flex items-center justify-between rounded px-2 outline-none"
+        :class="{ 'py-1': index !== 0 }"
       >
         <NuxtLinkLocale
           class="pl-2 text-muted-foreground hover:text-primary"
