@@ -24,7 +24,7 @@ const { data } = await useAsyncData(
         label: breadcrumb.title ?? t("APP_NAME"),
         to: breadcrumb._path,
       })),
-    ].sort((a, b) => (a.to && b.to ? a.to?.length - b.to?.length : 0));
+    ].sort((a, b) => (a.to && b.to ? a.to.length - b.to.length : 0));
 
     const lastItem = breadcrumbItems[breadcrumbItems.length - 1];
     if (lastItem) {
