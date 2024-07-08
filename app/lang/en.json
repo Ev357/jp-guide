@@ -18,11 +18,7 @@
   "HEADER.COMMAND.SEARCH": "Search...",
   "HEADER.COMMAND.SEARCH_PLACEHOLDER": "Type a command or search...",
   "HEADER.COMMAND.TITLE": "Search command",
-  "HEADER.NAVIGATION.CLASSIC_JP": "Classic JP",
-  "HEADER.NAVIGATION.DICTIONARIES": "Dictionaries",
-  "HEADER.NAVIGATION.GRAMMAR": "Grammar",
-  "HEADER.NAVIGATION.KANJI": "Kanji",
-  "HEADER.NAVIGATION.PHONETICS": "Phonetics",
   "HEADER.SWITCH_LANG.LANGUAGE": "Language",
-  "HEADER.SWITCH_MODE.THEME": "Theme"
+  "HEADER.SWITCH_MODE.THEME": "Theme",
+  "TOC.TITLE": "Table of Contents"
 }
