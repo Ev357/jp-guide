@@ -31,11 +31,16 @@ const is404 = computed(() => error.value && error.value.statusCode === 404);
 
 <template>
   <div>
-    <MaxWidthWrapper v-if="data" class="pb-16">
+    <MaxWidthWrapper v-if="data" class="pb-16 lg:grid lg:grid-cols-10 lg:gap-8">
+      <div class="col-span-2 hidden justify-end self-start lg:flex">
+        <NavTree v-if="path !== '/'" />
+      </div>
       <ContentRenderer :value="data">
-        <div class="prose flex flex-col gap-8 dark:prose-invert">
-          <Breadcrumb />
-          <ContentRendererMarkdown :value="data" />
+        <div class="flex justify-center lg:col-span-6">
+          <div class="prose relative flex flex-col gap-8 dark:prose-invert">
+            <Breadcrumb />
+            <ContentRendererMarkdown :value="data" />
+          </div>
         </div>
       </ContentRenderer>
     </MaxWidthWrapper>
