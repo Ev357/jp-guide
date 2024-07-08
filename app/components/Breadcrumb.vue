@@ -9,24 +9,8 @@ const {
 
 const { t, locale } = useI18n();
 
-const basePath = computed(() => {
-  if (Array.isArray(slug)) {
-    return `/${slug[0] ?? ""}`;
-  }
-
-  return `/${slug ?? ""}`;
-});
-
-const paths = computed(() => {
-  if (Array.isArray(slug)) {
-    return slug.reduce<string[]>((paths, slug) => {
-      paths.push(`${paths.join("/")}/${slug}`);
-      return paths;
-    }, []);
-  }
-
-  return [slug || "/"];
-});
+const paths = computed(() => getPaths(slug));
+const basePath = computed(() => getBasePath(slug));
 
 const { data } = await useAsyncData(
   `breadcrumbs-${fullPath}`,
