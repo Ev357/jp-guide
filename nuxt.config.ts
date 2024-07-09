@@ -58,6 +58,18 @@ export default defineNuxtConfig({
       },
     ],
     "@nuxthq/studio",
+    [
+      "nuxt-posthog",
+      {
+        publicKey: process.env.NUXT_PUBLIC_POSTHOG_KEY,
+        host: process.env.NUXT_PUBLIC_POSTHOG_HOST,
+        clientOptions: {
+          api_host: "/api/ingest",
+          ui_host: process.env.NUXT_PUBLIC_POSTHOG_UI_HOST,
+        },
+        disabled: process.env.NODE_ENV === "development",
+      },
+    ],
   ],
   runtimeConfig: {
     public: {
@@ -66,6 +78,18 @@ export default defineNuxtConfig({
         name: process.env.NUXT_PUBLIC_SITE_NAME,
         description: process.env.NUXT_PUBLIC_SITE_DESCRIPTION,
       },
+      posthog: {
+        key: process.env.NUXT_PUBLIC_POSTHOG_KEY,
+        host: process.env.NUXT_PUBLIC_POSTHOG_HOST,
+      },
+    },
+  },
+  routeRules: {
+    "/api/ingest/static/**": {
+      proxy: `${process.env.NUXT_PUBLIC_POSTHOG_ASSET_HOST}/static/**`,
+    },
+    "/api/ingest/**": {
+      proxy: `${process.env.NUXT_PUBLIC_POSTHOG_HOST}/**`,
     },
   },
   future: {
