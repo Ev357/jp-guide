@@ -9,10 +9,10 @@ export const useSearchContent = async <DataItem>(
 ) => {
   const runtimeConfig = useRuntimeConfig();
   const { content } = runtimeConfig.public;
-  const { integrity, search: searchOptions } = content;
+  const { search: searchOptions } = content;
   const { indexed: useIndexedSearch } = searchOptions || {};
 
-  const searchRoute = `/api/search${integrity ? "-" + integrity : ""}`;
+  const searchRoute = "/api/search";
 
   if (useIndexedSearch) {
     const { options: miniSearchOptions } = searchOptions || {};
