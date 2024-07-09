@@ -40,8 +40,6 @@ export default defineEventHandler(async (event) => {
     const miniSearch = new MiniSearch(options!);
     miniSearch.addAll(sections);
 
-    console.log(typeof miniSearch);
-
     return JSON.stringify(miniSearch);
   }
 
