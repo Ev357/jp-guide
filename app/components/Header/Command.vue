@@ -40,6 +40,7 @@ if (Ctrl_K) {
 }
 
 const { t, locale } = useI18n();
+const localePath = useLocalePath();
 
 const searchTerm = ref("");
 
@@ -110,7 +111,7 @@ const handleSelect = (event: SelectEvent<AcceptableValue>) => {
 
   open.value = false;
   searchTerm.value = "";
-  navigateTo(event.detail.value);
+  navigateTo(localePath(event.detail.value));
 };
 </script>
 
