@@ -27,6 +27,9 @@ useHead({
 });
 
 const is404 = computed(() => error.value && error.value.statusCode === 404);
+
+const toc = computed(() => data.value?.body?.toc);
+const links = useTocLinks(toc);
 </script>
 
 <template>
@@ -37,14 +40,15 @@ const is404 = computed(() => error.value && error.value.statusCode === 404);
       </div>
       <ContentRenderer :value="data">
         <div class="flex justify-center lg:col-span-6">
-          <div class="prose relative flex flex-col gap-8 dark:prose-invert">
+          <div class="prose flex flex-col gap-8 dark:prose-invert">
             <Breadcrumb />
+            <TocMobile v-if="path !== '/'" :links />
             <ContentRendererMarkdown :value="data" />
           </div>
         </div>
       </ContentRenderer>
       <div class="col-span-2 hidden h-full justify-start self-start lg:block">
-        <Toc v-if="path !== '/'" :toc="data.body?.toc" />
+        <Toc v-if="path !== '/'" :links />
       </div>
     </MaxWidthWrapper>
     <Error404
