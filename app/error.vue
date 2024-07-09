@@ -58,15 +58,15 @@ const backUrl = "/";
 const backMessage = t("ERROR.BACK_HOME");
 
 const Error404 = defineAsyncComponent(() =>
-  import("./Error/404.vue").then((r) => r.default || r),
+  import("./components/Error/404.vue").then((r) => r.default || r),
 );
 
 const Error = import.meta.dev
   ? defineAsyncComponent(() =>
-      import("./Error/Dev.vue").then((r) => r.default || r),
+      import("./components/Error/Dev.vue").then((r) => r.default || r),
     )
   : defineAsyncComponent(() =>
-      import("./Error/500.vue").then((r) => r.default || r),
+      import("./components/Error/500.vue").then((r) => r.default || r),
     );
 
 const ErrorTemplate = is404 ? Error404 : Error;

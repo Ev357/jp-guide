@@ -70,6 +70,7 @@ export default defineNuxtConfig({
         disabled: process.env.NODE_ENV === "development",
       },
     ],
+    "nuxt-vercel-analytics",
   ],
   runtimeConfig: {
     public: {
