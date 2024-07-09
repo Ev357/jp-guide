@@ -1,6 +1,7 @@
 {
   "APP_NAME": "JP Guide",
   "COMMON.CLOSE": "Zavřít",
+  "COMMON.OTHER": "Ostatní",
   "ERROR.APPLICATION": "V aplikaci došlo k chybě a stránku nebylo možné zobrazit. Pokud jste vlastníkem aplikace, zkontrolujte protokoly serveru a zjistěte podrobnosti.",
   "ERROR.BACK": "Zpátky",
   "ERROR.BACK_HOME": "Zpátky domů",

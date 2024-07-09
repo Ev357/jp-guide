@@ -52,6 +52,9 @@ export default defineNuxtConfig({
       "@nuxt/content",
       {
         locales: ["en", "cs"],
+        experimental: {
+          search: true,
+        },
       },
     ],
     "@nuxthq/studio",

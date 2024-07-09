@@ -11,11 +11,17 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const props = defineProps<
-  ComboboxInputProps & {
-    class?: HTMLAttributes["class"];
-  }
->();
+const props = withDefaults(
+  defineProps<
+    ComboboxInputProps & {
+      class?: HTMLAttributes["class"];
+      loading?: boolean;
+    }
+  >(),
+  {
+    loading: false,
+  },
+);
 
 const delegatedProps = computed(() => {
   const { class: _, ...delegated } = props;
@@ -29,7 +35,11 @@ const forwardedProps = useForwardProps(delegatedProps);
 <template>
   <div class="flex items-center border-b px-3" cmdk-input-wrapper>
     <span
-      class="i-heroicons-magnifying-glass-20-solid mr-2 size-5 shrink-0 opacity-50"
+      class="mr-2 size-5 shrink-0 opacity-50"
+      :class="{
+        'i-heroicons-magnifying-glass-20-solid': !loading,
+        'i-heroicons-arrow-path-20-solid animate-spin': loading,
+      }"
     ></span>
     <ComboboxInput
       v-bind="{ ...forwardedProps, ...$attrs }"

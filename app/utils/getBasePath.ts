@@ -3,5 +3,11 @@ export const getBasePath = (slug: string | string[] | undefined) => {
     return `/${slug[0] ?? ""}`;
   }
 
-  return `/${slug ?? ""}`;
+  return `/${
+    slug
+      ?.split("/")
+      .find((part) => part)
+      ?.split("#")
+      .find((part) => part) ?? ""
+  }`;
 };

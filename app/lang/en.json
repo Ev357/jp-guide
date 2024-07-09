@@ -1,6 +1,7 @@
 {
   "APP_NAME": "JP Guide",
   "COMMON.CLOSE": "Close",
+  "COMMON.OTHER": "Other",
   "ERROR.APPLICATION": "An error occurred in the application and the page could not be served. If you are the application owner, check your server logs for details.",
   "ERROR.BACK": "Go back",
   "ERROR.BACK_HOME": "Go back home",
