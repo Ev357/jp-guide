@@ -32,13 +32,14 @@ const { Ctrl_K } = useMagicKeys({
 
 const handleOpenChange = () => {
   open.value = !open.value;
+  searchTerm.value = "";
 };
 
 if (Ctrl_K) {
   whenever(Ctrl_K, handleOpenChange);
 }
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 
 const searchTerm = ref("");
 
@@ -49,7 +50,9 @@ const { data: results, status } = useAsyncData(
       return [];
     }
 
-    const data = await searchContent(searchTerm.value);
+    const data = await useSearchContent(searchTerm.value, {
+      locale,
+    });
     return Array.from(
       data.value
         .reduce((data, result) => {
@@ -98,7 +101,7 @@ const { data: results, status } = useAsyncData(
     }));
   },
   {
-    watch: [refDebounced(searchTerm, 300)],
+    watch: [refDebounced(searchTerm, 300), locale],
   },
 );
 
@@ -106,6 +109,7 @@ const handleSelect = (event: SelectEvent<AcceptableValue>) => {
   if (!(typeof event.detail.value === "string")) return;
 
   open.value = false;
+  searchTerm.value = "";
   navigateTo(event.detail.value);
 };
 </script>
