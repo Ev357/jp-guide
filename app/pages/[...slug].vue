@@ -40,7 +40,7 @@ const links = useTocLinks(toc);
       </div>
       <ContentRenderer :value="data">
         <div class="flex justify-center lg:col-span-6">
-          <div class="prose flex flex-col gap-8 dark:prose-invert">
+          <div class="prose flex max-w-4xl flex-col gap-8 dark:prose-invert">
             <Breadcrumb />
             <TocMobile v-if="path !== '/'" :links />
             <ContentRendererMarkdown :value="data" />

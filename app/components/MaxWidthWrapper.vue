@@ -11,10 +11,7 @@ const props = defineProps<{
   <div class="flex w-full justify-center px-4">
     <div
       :class="
-        cn(
-          'flex w-full max-w-[1080px] flex-col items-center pt-24',
-          props.class,
-        )
+        cn('flex w-full max-w-7xl flex-col items-center pt-24', props.class)
       "
     >
       <slot />
