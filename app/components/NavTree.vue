@@ -57,7 +57,7 @@ const getFilteredItems = (items: FlattenedItem<NavItem>[]) =>
       :value="getFilteredItems(flattenItems)"
       v-slot="{ value: items }"
     >
-      <template v-if="items.length > 1">
+      <template v-if="items.length > 1 || items[0]?.showIcon">
         <TreeItem
           v-for="(item, index) in items"
           :key="item._id"
