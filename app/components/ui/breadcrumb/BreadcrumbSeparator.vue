@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import type { HTMLAttributes } from "vue";
-import { cn } from "@/lib/utils";
 
 const props = defineProps<{
   class?: HTMLAttributes["class"];
@@ -8,11 +7,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <li
-    role="presentation"
-    aria-hidden="true"
-    :class="cn('[&>svg]:size-3.5', props.class)"
-  >
+  <li role="presentation" aria-hidden="true" :class="props.class">
     <slot>
       <span
         class="i-heroicons-chevron-right-20-solid block size-4 shrink-0"
