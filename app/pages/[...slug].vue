@@ -11,24 +11,40 @@ const path = computed(() => getPath(slug));
 
 const getFullPath = () => useRoute().fullPath;
 
+const basePath = computed(() => getBasePath(slug));
+
 const { data, error } = await useAsyncData<
-  ParsedContent,
+  {
+    page: ParsedContent;
+    surround: {
+      prev?: Pick<ParsedContent, "_path" | "title" | "description">;
+      next?: Pick<ParsedContent, "_path" | "title" | "description">;
+    };
+  },
   Error & {
     statusCode: number;
   }
->(`nuxt-content:${getFullPath()}`, () =>
-  queryContent("/")
-    .where({ _locale: locale.value, _path: path.value })
-    .findOne(),
-);
+>(`nuxt-content:${getFullPath()}`, async () => {
+  const [page, [prev, next]] = await Promise.all([
+    queryContent("/")
+      .where({ _locale: locale.value, _path: path.value })
+      .findOne(),
+    queryContent(basePath.value)
+      .only(["_path", "title", "description"])
+      .where({ _locale: locale.value })
+      .findSurround(path.value),
+  ]);
+
+  return { page, surround: { prev, next } };
+});
 
 useHead({
-  title: data.value?.title,
+  title: data.value?.page.title,
 });
 
 const is404 = computed(() => error.value && error.value.statusCode === 404);
 
-const toc = computed(() => data.value?.body?.toc);
+const toc = computed(() => data.value?.page.body?.toc);
 const links = useTocLinks(toc);
 </script>
 
@@ -38,12 +54,31 @@ const links = useTocLinks(toc);
       <div class="col-span-2 hidden h-full justify-end self-start lg:block">
         <NavTree v-if="path !== '/'" />
       </div>
-      <ContentRenderer :value="data">
+      <ContentRenderer :value="data.page">
         <div class="flex justify-center lg:col-span-6">
-          <div class="prose flex max-w-4xl flex-col gap-8 dark:prose-invert">
+          <div
+            class="prose flex min-h-svh max-w-4xl flex-col gap-8 dark:prose-invert"
+          >
             <Breadcrumb />
             <TocMobile v-if="path !== '/'" :links />
-            <ContentRendererMarkdown :value="data" />
+            <ContentRendererMarkdown :value="data.page" class="grow" />
+            <template v-if="path !== '/'">
+              <USeparator />
+              <div class="not-prose grid gap-8 sm:grid-cols-2">
+                <NavCard
+                  v-if="data.surround.prev"
+                  :link="data.surround.prev"
+                  side="left"
+                  class="sm:col-start-1"
+                />
+                <NavCard
+                  v-if="data.surround.next"
+                  :link="data.surround.next"
+                  side="right"
+                  class="sm:col-start-2"
+                />
+              </div>
+            </template>
           </div>
         </div>
       </ContentRenderer>
