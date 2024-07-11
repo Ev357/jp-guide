@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { HeaderLink } from "@/components/Header.vue";
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
+import type { ParsedContent } from "@nuxt/content";
 
 defineProps<{
-  links: HeaderLink[];
+  links?: Pick<ParsedContent, "title" | "_path">[];
 }>();
 
 const isOpen = defineModel<boolean>({ required: true });
@@ -14,8 +14,8 @@ const isOpen = defineModel<boolean>({ required: true });
   <HeaderCommand :links :hideKbd="true" class="h-10 w-full" />
   <UNavigationMenuLink
     v-for="item in links"
-    :key="item.path"
-    :to="item.path"
+    :key="item._path"
+    :to="item._path"
     :class="cn(navigationMenuTriggerStyle(), 'w-full justify-start')"
     @click="isOpen = false"
   >

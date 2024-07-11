@@ -1,27 +1,15 @@
 <script setup lang="ts">
-export type HeaderLink = {
-  title: string;
-  path: string;
-};
-
 const isOpen = ref(false);
 
-const { locale, t } = useI18n();
+const { locale } = useI18n();
 
 const { data: links } = await useAsyncData(
   "navigation",
-  async () => {
-    const paths = await queryContent("/")
+  () =>
+    queryContent("/")
       .where({ _locale: locale.value, _path: { $ne: "/" }, _dir: "" })
       .only(["title", "_path"])
-      .find();
-
-    return paths.map<HeaderLink>(({ _path: path, ...props }) => ({
-      ...props,
-      title: props.title ?? t("APP_NAME"),
-      path: path ?? "/",
-    }));
-  },
+      .find(),
   {
     watch: [locale],
   },
