@@ -36,8 +36,10 @@ const { data, error } = await useAsyncData<
   return { page, surround: { prev, next } };
 });
 
+const title = computed(() => data.value?.page.title);
+
 useHead({
-  title: data.value?.page.title,
+  title: title.value,
 });
 
 const is404 = computed(() => error.value && error.value.statusCode === 404);

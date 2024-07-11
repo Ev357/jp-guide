@@ -96,9 +96,4 @@ export default defineNuxtConfig({
       selectiveClient: "deep",
     },
   },
-  app: {
-    head: {
-      titleTemplate: "%siteName",
-    },
-  },
 });
