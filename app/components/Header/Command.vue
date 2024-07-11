@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from "vue";
-import type { HeaderLink } from "@/components/Header.vue";
 import { cn } from "@/lib/utils";
 import type { SelectEvent } from "@@/node_modules/radix-vue/dist/Combobox/ComboboxItem.js";
 import type { AcceptableValue } from "@@/node_modules/radix-vue/dist/Combobox/ComboboxRoot.js";
 import type { SearchResult } from "minisearch";
+import type { ParsedContent } from "@nuxt/content";
 
 const props = withDefaults(
   defineProps<{
-    links: HeaderLink[];
+    links?: Pick<ParsedContent, "title" | "_path">[];
     hideKbd?: boolean;
     class?: HTMLAttributes["class"];
   }>(),
@@ -59,7 +59,7 @@ const { data: results, status } = useAsyncData(
         .reduce((data, result) => {
           const resultBasePath = getBasePath(result.id);
           const groupId =
-            links.value.find((link) => link.path === resultBasePath)?.path ??
+            links.value?.find((link) => link._path === resultBasePath)?._path ??
             "/";
           const group = data.get(groupId);
 
@@ -95,7 +95,7 @@ const { data: results, status } = useAsyncData(
         .entries(),
     ).map(([basePath, group]) => ({
       name:
-        links.value.find((link) => link.path === basePath)?.title ??
+        links.value?.find((link) => link._path === basePath)?.title ??
         t("COMMON.OTHER"),
       path: basePath,
       results: Array.from(group.values()),

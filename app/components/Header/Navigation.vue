@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import type { HeaderLink } from "@/components/Header.vue";
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import type { ParsedContent } from "@nuxt/content";
 
 defineProps<{
-  links: HeaderLink[];
+  links?: Pick<ParsedContent, "title" | "_path">[];
 }>();
 </script>
 
 <template>
   <UNavigationMenu>
     <UNavigationMenuList>
-      <UNavigationMenuItem v-for="item in links" :key="item.path">
+      <UNavigationMenuItem v-for="item in links" :key="item._path">
         <UNavigationMenuLink
-          :to="item.path"
+          :to="item._path"
           :class="navigationMenuTriggerStyle()"
         >
           {{ item.title }}
