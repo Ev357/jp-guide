@@ -11,8 +11,6 @@ const path = computed(() => getPath(slug));
 
 const getFullPath = () => useRoute().fullPath;
 
-const basePath = computed(() => getBasePath(slug));
-
 const { data, error } = await useAsyncData<
   {
     page: ParsedContent;
@@ -29,7 +27,7 @@ const { data, error } = await useAsyncData<
     queryContent("/")
       .where({ _locale: locale.value, _path: path.value })
       .findOne(),
-    queryContent(basePath.value)
+    queryContent()
       .only(["_path", "title", "description"])
       .where({ _locale: locale.value })
       .findSurround(path.value),
