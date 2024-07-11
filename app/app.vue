@@ -6,7 +6,7 @@ const useIdFunction = () => useId();
 const { t } = useI18n();
 
 useHead({
-  titleTemplate: (titleChunk) => titleChunk ?? t("APP.NAME"),
+  titleTemplate: (titleChunk) => titleChunk ?? t("APP_NAME"),
 });
 </script>
 
