@@ -2,11 +2,11 @@ import type { TocLink, Toc } from "@nuxt/content";
 
 export const useTocLinks = (toc: Ref<Toc | undefined>) => {
   const links = ref<
-  | (TocLink & {
-      isVisible?: boolean;
-    })[]
-  | undefined
->(toc.value?.links);
+    | (TocLink & {
+        isVisible?: boolean;
+      })[]
+    | undefined
+  >(toc.value?.links);
 
   onMounted(() => {
     watchEffect(() => {
@@ -18,7 +18,7 @@ export const useTocLinks = (toc: Ref<Toc | undefined>) => {
               (targetLink) => targetLink.id === tocLink.id,
             );
             if (!link) return;
-  
+
             link.isVisible = intersect?.isIntersecting;
           },
         );
@@ -27,4 +27,4 @@ export const useTocLinks = (toc: Ref<Toc | undefined>) => {
   });
 
   return links;
-}
+};
