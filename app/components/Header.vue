@@ -37,7 +37,7 @@ const { data: links } = await useAsyncData(
         </div>
 
         <div class="hidden items-center gap-2 lg:flex">
-          <HeaderCommand v-if="links" :links />
+          <HeaderCommand v-if="links" :links v-model="isOpen" />
           <SwitchLang />
           <SwitchMode />
         </div>

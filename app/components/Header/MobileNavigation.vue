@@ -11,7 +11,7 @@ const isOpen = defineModel<boolean>({ required: true });
 </script>
 
 <template>
-  <HeaderCommand :links :hideKbd="true" class="h-10 w-full" />
+  <HeaderCommand :links :hideKbd="true" v-model="isOpen" class="h-10 w-full" />
   <UNavigationMenuLink
     v-for="item in links"
     :key="item._path"

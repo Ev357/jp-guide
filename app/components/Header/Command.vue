@@ -19,6 +19,8 @@ const props = withDefaults(
 
 const { links } = toRefs(props);
 
+const isMenuOpen = defineModel<boolean>({ required: true });
+
 const open = ref(false);
 
 const { Ctrl_K } = useMagicKeys({
@@ -110,6 +112,7 @@ const handleSelect = (event: SelectEvent<AcceptableValue>) => {
   if (!(typeof event.detail.value === "string")) return;
 
   open.value = false;
+  isMenuOpen.value = false;
   searchTerm.value = "";
   navigateTo(localePath(event.detail.value));
 };
