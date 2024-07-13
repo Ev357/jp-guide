@@ -13,7 +13,7 @@ const path = computed(() => getPath(slug));
 const paths = computed(() => getPaths(slug));
 const basePath = computed(() => getBasePath(slug));
 
-const { data: items } = await useAsyncData(
+const { data: items } = await useLazyAsyncData(
   `tree-${fullPath}`,
   () =>
     fetchContentNavigation(
