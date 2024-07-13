@@ -46,7 +46,7 @@ const localePath = useLocalePath();
 
 const searchTerm = ref("");
 
-const { data: results, status } = useAsyncData(
+const { data: results, status } = useLazyAsyncData(
   "command-search",
   async () => {
     if (!searchTerm.value) {

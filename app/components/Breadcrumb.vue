@@ -11,7 +11,7 @@ const { t, locale } = useI18n();
 const paths = computed(() => getPaths(slug));
 const basePath = computed(() => getBasePath(slug));
 
-const { data } = await useAsyncData(
+const { data } = await useLazyAsyncData(
   `breadcrumbs-${fullPath}`,
   async () => {
     const items = await queryContent(basePath.value)

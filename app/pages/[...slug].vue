@@ -11,7 +11,7 @@ const path = computed(() => getPath(slug));
 
 const getFullPath = () => useRoute().fullPath;
 
-const { data, error } = await useAsyncData<
+const { data, error } = await useLazyAsyncData<
   {
     page: ParsedContent;
     surround: {
@@ -48,44 +48,53 @@ const links = useTocLinks(toc);
 
 <template>
   <div>
-    <MaxWidthWrapper v-if="data" class="pb-16 lg:grid lg:grid-cols-10 lg:gap-8">
+    <MaxWidthWrapper
+      v-if="!is404"
+      class="pb-16 lg:grid lg:grid-cols-10 lg:gap-8"
+    >
       <div class="col-span-2 hidden h-full justify-end self-start lg:block">
         <NavTree v-if="path !== '/'" />
       </div>
-      <ContentRenderer :value="data.page">
-        <div class="flex justify-center lg:col-span-6">
-          <div
-            class="prose flex min-h-svh max-w-4xl flex-col gap-8 dark:prose-invert"
-          >
-            <Breadcrumb />
-            <TocMobile v-if="path !== '/'" :links />
+      <div class="flex justify-center lg:col-span-6">
+        <div
+          class="prose flex min-h-svh w-full max-w-4xl flex-col gap-8 dark:prose-invert"
+        >
+          <Breadcrumb />
+          <TocMobile v-if="path !== '/'" :links />
+          <ContentRenderer v-if="data?.page" :value="data.page">
             <ContentRendererMarkdown :value="data.page" class="grow" />
-            <template v-if="path !== '/'">
-              <USeparator />
-              <div class="not-prose grid gap-8 sm:grid-cols-2">
-                <NavCard
-                  v-if="data.surround.prev"
-                  :link="data.surround.prev"
-                  side="left"
-                  class="sm:col-start-1"
-                />
-                <NavCard
-                  v-if="data.surround.next"
-                  :link="data.surround.next"
-                  side="right"
-                  class="sm:col-start-2"
-                />
-              </div>
-            </template>
+            <template #empty>yo</template>
+          </ContentRenderer>
+          <div v-else class="flex h-full w-full flex-col gap-8">
+            <USkeleton class="h-12 max-w-64" />
+            <USkeleton class="size-full" />
           </div>
+
+          <template v-if="path !== '/' && data">
+            <USeparator />
+            <div class="not-prose grid gap-8 sm:grid-cols-2">
+              <NavCard
+                v-if="data.surround.prev"
+                :link="data.surround.prev"
+                side="left"
+                class="sm:col-start-1"
+              />
+              <NavCard
+                v-if="data.surround.next"
+                :link="data.surround.next"
+                side="right"
+                class="sm:col-start-2"
+              />
+            </div>
+          </template>
         </div>
-      </ContentRenderer>
+      </div>
       <div class="col-span-2 hidden h-full justify-start self-start lg:block">
         <Toc v-if="path !== '/'" :links />
       </div>
     </MaxWidthWrapper>
     <Error404
-      v-if="is404"
+      v-else
       :status-message="$t('ERROR.NOT_FOUND')"
       :description="$t('ERROR.PAGE_NOT_FOUND_DESCRIPTION')"
       :back-message="$t('ERROR.BACK_HOME')"

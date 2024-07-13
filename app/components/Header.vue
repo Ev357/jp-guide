@@ -3,7 +3,7 @@ const isOpen = ref(false);
 
 const { locale } = useI18n();
 
-const { data: links } = await useAsyncData(
+const { data: links } = await useLazyAsyncData(
   "navigation",
   () =>
     queryContent("/")
